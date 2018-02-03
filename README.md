@@ -1,5 +1,4 @@
 # collegeHACKS
-My attempt at Angular 4
 
 A simple web application to help students look for apartment vacancies / roommates, shared rides and textbooks.
 

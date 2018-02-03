@@ -1,0 +1,74 @@
+<div id="body">
+    <div class="container" id="main">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card"  id="eachCard" *ngFor="let item of items | async">     
+                    <div class="text-center" style="font-size:20px; color:white;">
+                        <h5>{{item.Apt | uppercase}} </h5>
+                        
+                        {{item.Address}}        
+                    </div>
+
+                    <ngb-accordion [closeOthers]="true">
+                        <ngb-panel >
+                            <ng-template ngbPanelTitle >
+                                View Details
+                            </ng-template>
+                            
+                            <ng-template ngbPanelContent>
+                                <li class="list-group-item">
+                                    Start Date : {{item.Date.month}} / {{item.Date.day}} / {{item.Date.year}}
+                                </li>
+
+                                <li class="list-group-item">
+                                    Rent + Utilities =  {{item.Rent}} + {{item.Utilities}} <br>
+                                    <div *ngIf="item.desc">{{item.description}}</div>
+                                </li>      
+
+                                <li class="list-group-item">
+                                    <a (click)="display(item, content)" data-toggle ="modal" class="btn btn-info" role="button" style="color:white;">
+                                        <i class="fa fa-address-card" aria-hidden="true"> Contact</i>
+                                    </a>
+                                    <a class="btn btn-info" role="button" style="color:white;" (click)="showOnMap(item.Address)">
+                                        <i class="fa fa-map-marker" aria-hidden="true"> Find on Map</i>
+                                    </a>
+                                </li>          
+                            </ng-template>
+                        </ngb-panel>            
+                    </ngb-accordion>
+                </div>                 
+            </div>
+
+            <div class="container" id ="map">
+                <app-map></app-map>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header" id="header">
+        <h4 class="modal-title text-center" >
+            <i class="fa fa-user-o" aria-hidden="true"> {{data.Name}}</i> 
+        </h4>
+
+    </div>
+    <div class="modal-body" id="contact">
+        
+        <li class="list-group-item">
+            {{data.Email}}
+        </li>
+        
+
+        <div *ngIf="data.Phone">
+                <li class="list-group-item">
+                    <i class="fa fa-mobile" aria-hidden="true">{{data.Phone}}</i>
+                </li>
+        </div>
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-info" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template> 

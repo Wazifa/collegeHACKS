@@ -1,0 +1,115 @@
+
+<form [formGroup]='form' #myForm = "ngForm" (ngSubmit)= "onSubmit(form.value, myForm)">
+
+    <div class="container">
+        <div class="card">
+            <div class="row">
+
+                <!-- Apartment Information -->
+                <div class="card col-sm-4" style="left:15%;">
+                    <h1 class="text-center">Apartment Information</h1>
+                        
+                    <!-- Name of apartment -->
+                    <div class="form-group">
+                        <label for="apartment">Apartment Name*</label>
+                        <input type="text" class="form-control" formControlName='apartment' #apartment required >
+                    </div>
+                    
+                    <!-- Address for apartment -->
+                    <div class="form-group">
+                        <label for="inputAddress">Address*</label>
+                        <input type="text" class="form-control" #address formControlName='address' placeholder="1234 Main St" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="inputAddress2" style="color:black;">Address 2</label>
+                        <input type="text" class="form-control" placeholder="Apartment, studio, or floor">
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="city">City*</label>  
+                        <input type="text" class="form-control" formControlName='city' #city required>
+                    </div>
+                         
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="state">State*</label>
+                            <input type="text" class="form-control" formControlName='state' #state required>
+                        </div>
+                            
+                        <div class="form-group col-md-4">
+                            <label for="zip">Zip*</label>
+                            <input type="number" class="form-control" formControlName='zip' #zip required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="rent">Rent*</label>
+                            <input type="number" class="form-control" formControlName='rent' #rent required>
+                        </div>
+                            
+                        <div class="form-group col-md-4">
+                            <label for="utilities">Utilities*</label>
+                            <input type="number" class="form-control" formControlName='utilities' #utilities required>
+                        </div>
+                    </div>
+
+                
+                    <div class="form-group">
+                        <label for="date">Date*  </label>
+                        <div class="input-group">    
+                            <input class="form-control" placeholder="yyyy-mm-dd"
+                                    ngbDatepicker #date="ngbDatepicker" formControlName='date' required>
+                            <button class="input-group-addon" (click)="date.toggle()" type="button" style="cursor: pointer;">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                
+
+                    <div class="form-group">
+                        <label for="desc" style="color:black;">Description</label>
+                        <input type="text" class="form-control" placeholder="Optional" formControlName='desc' #desc>
+                    </div>
+
+                </div>
+                
+                <!-- Contact information -->
+                <div class="card col-sm-4" style="left:18%;">
+                    <h1 class="text-center">Contact Information</h1>
+                    
+                    <div class="form-group">
+                        <label for="name">Name*</label>
+                        <input type="text" class="form-control" formControlName='name' #name required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" class="form-control" formControlName='email' #email required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" style="color:black;">Phone Number</label>
+                        <input type="Number" class="form-control" placeholder="Optional" formControlName='phone' #phone>
+                    </div>
+
+                    <div class="text-center" style="padding-top: 10%;">
+                        <button type="submit" class="btn btn-primary btn-lg" >
+                            Submit  
+                        </button>
+                        <button type="reset" class="btn btn-primary btn-lg">
+                            Cancel  
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+
+
+

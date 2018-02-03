@@ -1,0 +1,18 @@
+.btn, .a
+{
+    color: white;
+    font-size: 2em;
+    display: block;
+    margin: 0 auto;
+    background-color: rgba(255, 162, 0, 0.849);
+}
+
+.each-button
+{
+    color: white;
+}
+
+.container
+{
+    margin-top: 8%;
+}

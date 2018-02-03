@@ -1,0 +1,66 @@
+<div class="container" >
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card text-center"  id="eachCard" *ngFor="let ride of rides | async">      
+                <h5> {{ride.startStreet}} </h5>
+                    
+                     <p style="color:white;"> To</p> 
+                     <h5> {{ride.destinationStreet}}</h5>
+                     
+            
+                <ngb-accordion [closeOthers]="true">
+                    <ngb-panel title = "View Details" >
+                        
+                        <ng-template ngbPanelContent >
+                            <li class="list-group-item">
+                                Time : {{ride.Time}}
+                                <br>
+                                Date: {{ride.Date.month}} / {{ride.Date.day}} / {{ride.Date.year}} 
+                            </li>      
+                            <li class="list-group-item text-center">
+                                <a (click)="display(ride, content)" data-toggle ="modal" class="btn btn-info" role="button" style="color:white;">
+                                    <i class="fa fa-address-card" aria-hidden="true"> Contact </i>
+                                </a>
+
+                                <button class="btn btn-info" role="button" style="color:white;" 
+                                (click)="showOnMap(ride.startStreet+ride.startCity+ride.startState+ride.startZip, ride.destinationStreet+ride.destinationCity+ride.destinationState+ride.destinationZip)">
+                                    <i class="fa fa-map-marker" aria-hidden="true"> Find on Map</i>
+                                    
+                                </button>
+                                
+                            </li>        
+                        </ng-template>
+                    </ngb-panel>            
+                </ngb-accordion>
+            </div>
+        </div>
+        <div id="map">
+            <app-map></app-map>
+        </div>
+    </div> 
+    
+</div> 
+
+ <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header" id="header">
+        <h4 class="modal-title text-center" >
+            <i class="fa fa-user-o" aria-hidden="true"> {{data.Name}}</i> 
+        </h4>
+
+    </div>
+    <div class="modal-body" id="contact">
+        <li class="list-group-item">
+            {{data.Email}}
+        </li>
+        <div *ngIf="data.Phone">
+            <li class="list-group-item">
+                {{data.Phone}}
+            </li>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-info" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template> 
+
+

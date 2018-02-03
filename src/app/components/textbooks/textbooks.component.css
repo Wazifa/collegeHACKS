@@ -1,0 +1,39 @@
+#body{
+    background-image: url('background.jpg');
+}
+h5{
+    color: white;
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+#eachCard{
+    margin: 1.5em;
+    background-color: lightslategray;
+}
+
+.btn
+{
+    color: white;
+    background-color: lightslategrey;
+}
+
+.list-group-item
+{
+    text-align: left;
+}
+
+.container
+{
+    margin-top: 5%;
+    
+}
+
+p{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}

@@ -1,0 +1,35 @@
+h5
+{
+    color: white;
+}
+
+#eachCard
+{
+    margin: 1.5em;
+    background-color: lightslategray;
+}
+
+.btn
+{
+    color: white;
+    background-color: lightslategray;
+}
+
+#map
+{
+    float: right;
+    width: 45%;
+    margin-top: 1.5em;
+}
+
+#header, h4
+{
+    background-color:lightslategrey;;
+    color: white;
+    text-align: center;
+}
+
+.container
+{
+    margin-top: 5%;
+}

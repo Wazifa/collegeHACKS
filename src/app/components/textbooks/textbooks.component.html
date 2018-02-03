@@ -1,0 +1,53 @@
+<div id="body">
+    <div class="container">
+        <div class="row" >
+            <div class="col-sm-6"  *ngFor="let item of items | async">
+                <div class="card" id="eachCard" >
+                    <h5> 
+                        {{item.Book}}
+                    </h5>            
+                    <p> Edition: {{item.Edition}} for ${{item.Price}}</p>
+
+                    <li class="list-group-item">
+                            Condition: {{item.Condition}}.
+                    
+                        <li class="list-group-item">
+                                <a (click)="display(item, content)" data-toggle ="modal" class="btn btn-info" role="button" style="color:white;">
+                                    <i class="fa fa-address-card" aria-hidden="true"> Contact</i>
+                                </a>
+                        </li>
+                </div>
+            </div> 
+        
+        </div>                    
+    </div>
+</div>    
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">
+            <i class="fa fa-user-o" aria-hidden="true"> {{data.Name}}</i> 
+        </h4>
+
+    </div>
+    <div class="modal-body" id="contact">
+        <li class="list-group-item">
+            {{data.Email}}
+        </li>
+        <div *ngIf="data.Phone">
+            <li class="list-group-item">
+                {{data.Phone}}
+            </li>
+        </div>
+        <div *ngIf="data.Description">    
+            <li class="list-group-item">
+               <b> Note about Book: </b>{{data.Description}}
+            </li>
+        </div>
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-info" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>
+

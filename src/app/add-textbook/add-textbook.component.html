@@ -1,0 +1,86 @@
+
+<form [formGroup]='form' #myForm = "ngForm" 
+(ngSubmit)= "onSubmit(form.value, myForm)">
+
+    <div class="container">
+        <div class="card">
+            <div class="row">
+                <div class="card col-sm-4" style="left:15%;">
+                    <h1 class="text-center">Textbook Information</h1> 
+                        
+                    <!-- Address -->
+                    <div class="form-group">
+                        <label for="book">Name* </label>
+                        <input type="text" class="form-control" formControlName='book' #book ngModel required >
+                        
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                        <label for="edition">Edition*</label>
+                        <input type="text" class="form-control" #edition formControlName='edition' required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Price*</label>
+                        <input type="number" class="form-control" #price formControlName='price' required>
+                    </div>
+
+                    <label for="condition">Condition*</label>
+                    <select class="selectpicker" #condition formControlName='condition' required>
+                        <option>New</option>
+                        <option>Like New</option>
+                        <option>Used - Very Good</option>
+                        <option>Used - Good</option>
+                    </select>
+                
+                    <div class="form-group">
+                        <label for="desc" style="color:black;">Description</label>
+                        <input type="text" class="form-control" #desc formControlName='desc'>
+                    </div>
+
+                    <br>
+                    
+                </div>
+                
+                <!-- Contant information -->
+                <div class="card col-sm-4" style="left: 18%;">
+                    <h1 class="text-center">Contact Information</h1>
+                    
+                    <div class="form-group">
+                        <label for="name">Name* </label>
+                        <input type="text" class="form-control" formControlName='name' #name required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email* </label>
+                        <input type="email" class="form-control" formControlName='email' #email required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone" style="color:black;">Phone </label>
+                        <input type="number" class="form-control" placeholder="Optional" formControlName='phone' #phone>
+                    </div> 
+
+                    <div class="text-center" style="padding-top: 10%;">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            Submit  
+                        </button>
+                        <button type="reset" class="btn btn-primary btn-lg">
+                            Cancel  
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+</form>
+
+
+
+
+

@@ -1,0 +1,35 @@
+{
+  "roommate" : {
+    "-Ks9A3-eIu1b8faiP6u1" : {
+        "Address" : "715 Border Place",
+        "Apt" : "University Oaks",
+      "Name" : "Mike Ross",
+      "Start Date" : "2017-8-9",
+      "description" : "2 bedrooms and one bathroom",
+      "Rent" : 725,
+      "Utilities" : 0,
+      "Email" : "mike@gmail.com"
+    },
+  
+      "-KsNa6Nmu0M67D8rZh_G" : {
+          "Address" : "604 Causley Ave",
+        "Apt" : "Oxford",
+      "Name" : "Rachel Zane",
+      "Start Date" : "2017-8-9",
+      "description" : "Fitness center and pool",
+      "Rent" : 310,
+      "Utilities" : 50,
+      "Email" : "rachel@gmail.com"
+    },
+      "-KsZ42HAqB-18oPs61Ar" : {
+          "Address" : "1001 UTA Blvd",
+        "Apt" : "Campus Edge",
+      "Name" : "Jessica Pearson",
+      "Start Date" : "2017-8-9",
+      "description" : "Community Laundry room",
+      "Rent" : 690,
+      "Utilities" : 45,
+      "Email" : "jess@gmail.com"
+    }
+  }
+  }

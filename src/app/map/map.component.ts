@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AgmCoreModule, MapsAPILoader ,GoogleMapsAPIWrapper, NoOpMapsAPILoader} from '@agm/core';
 import {NgbAlert} from '@ng-bootstrap/ng-bootstrap';
 
-
-
 declare var google;
 
 @Component({
@@ -15,36 +13,29 @@ export class MapComponent implements OnInit {
 
   map : any;
   geocoder: any;
-  lat: any;
-  lng: any;
   infoWindow : any;
-  message : any;
   alert:String;
-  // mapService: MapService;
   
   constructor() { 
-    this.alert ="";
+    
   }
 
   ngOnInit() {
     
     this.initMap();
+    
   }
 
   /*
-   * Displays an initial map with the user's location
+   * Displays an initial map
   */
   initMap() 
   {
-    if (navigator.geolocation) 
-    {
-      navigator.geolocation.getCurrentPosition(position => {
-        this.map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: {lat: position.coords.latitude, lng: position.coords.longitude}  
-        });  
-     });
-   }
+    
+     this.map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 8,
+      center: {lat: 37.0902, lng: 95.7129}
+    }); 
   }
 
   /*
@@ -57,7 +48,9 @@ export class MapComponent implements OnInit {
       zoom: 18,
       center: {lat: -34.397, lng: 150.644}  
     }); 
+    
     this.geocodeAddress(this.map, address);
+    
   }
     
   /*
@@ -113,8 +106,6 @@ export class MapComponent implements OnInit {
     
     var service = new google.maps.DistanceMatrixService;
 
-    var message; 
-
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 15,
       disableDefaultUI: true,
@@ -156,42 +147,11 @@ export class MapComponent implements OnInit {
        
         this.alert= results[0].distance.text + " in approximately "+ results[0].duration.text; 
       }  
-      
-
-      // finding a center position between the 2 points to display the information
-      
-      var average_bounds;
-      var start_bounds;
-      var dest_bounds;
+      this.infowindow = new google.maps.InfoWindow({
+      content: this.alert
+      });
     
-      this.geocoder = new google.maps.Geocoder();
-      
-    this.geocoder.geocode({'address': start_Address}, function(results, status) {
-      if (status === 'OK') {
-        console.log(results[0].geometry.location.lat());
-      }
-      start_bounds = results[0].geometry.location;
-      console.log(start_bounds.lat());
-      console.log(start_bounds.lat());
-    });
-
-    this.geocoder.geocode({'address': destination_Address}, function(results, status) {
-      if (status === 'OK') {
-        console.log(results[0].geometry.location);
-      }
-      dest_bounds = results[0].geometry.location;
-      
-    });
-
-    average_bounds = (start_bounds + dest_bounds)/2;
-    console.log(average_bounds);
-
-    var infowindow = new google.maps.InfoWindow({
-      content: this.alert,
-      setPosition : dest_bounds
-    });
-    
-      infowindow.open(map);  
+      this.infowindow.open(map);  
       });
 
   }

@@ -1,9 +1,7 @@
-import { Component, OnInit, Optional } from '@angular/core';
-import { AgmCoreModule, MapsAPILoader ,GoogleMapsAPIWrapper, NoOpMapsAPILoader} from '@agm/core';
+import { Component, OnInit, Optional, AfterViewInit } from '@angular/core';
 import {NgbAlert} from '@ng-bootstrap/ng-bootstrap';
 import {MapService} from '../map.service';
-
-declare var google;
+import {AppModule} from '../app.module';
 
 @Component({
   selector: 'app-map',
@@ -14,27 +12,13 @@ declare var google;
 
 export class MapComponent implements OnInit {
 
-  map : any;
   
   constructor(private ms: MapService) { 
     
   }
 
   ngOnInit() {
-    
-    this.initMap();    
-  }
-
-  /*
-   * Displays an initial map
-  */
-  initMap() 
-  {
-    
-     this.map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 8,
-      center: {lat: 41.850033, lng: -87.6500523}
-    }); 
+    this.ms.initMap();  // display an initial map
   }
 
 }

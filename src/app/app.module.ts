@@ -69,7 +69,7 @@ const appRoutes:Routes = [
     NgbModule.forRoot(), NgbModule, SlideMenuModule, ReactiveFormsModule, 
     NgBootstrapFormValidationModule.forRoot(), NgbCarouselModule
   ],
-  providers: [FirebaseService, MapService],
+  providers: [FirebaseService],
   bootstrap: [AppComponent] //  the main component
 })
 export class AppModule { }

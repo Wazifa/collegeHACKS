@@ -39,9 +39,11 @@ export class AddTextbookComponent implements OnInit {
 
   onSubmit(value, myForm : NgForm)
   {
+    
     if (myForm.valid)
     {
       this.itemsRef.push({
+        Date : Date(),
         Book : value.book,
         Edition : value.edition,
         Name : value.name,
@@ -50,10 +52,7 @@ export class AddTextbookComponent implements OnInit {
         Condition : value.condition,
         Price : value.price, 
         Phone: value.phone
-     
       });
-
-      console.log(value.image);
       
       location.reload();
     }

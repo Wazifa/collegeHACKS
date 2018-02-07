@@ -21,5 +21,29 @@ export class BookDataService {
     return this.items;
   }
 
+  deleteOldEntries() // delete an entry 30 days after its post
+  {
+    this.items.forEach(element=>{
+      element.map(entry=>{ 
+        var date = new Date(entry.Date);
+        var next_month = date.getMonth() + 1;
+
+        if (new Date().getFullYear() > date.getFullYear())
+        {
+          this.itemsRef.remove(entry.key);
+        }
+
+        if (new Date().getMonth() === next_month)
+        {
+          if (new Date().getDate() > date.getDate())
+          {
+            this.itemsRef.remove(entry.key);
+          }
+         
+        }
+         });
+      });
+  }
+
 
 }

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-
-import {AngularFireList, AngularFireDatabase} from 'angularfire2/database';
 import {Observable} from 'rxjs/Observable';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import { MapComponent } from '../../map/map.component';
 import {RidesDataService} from '../../rides-data.service';
+import {MapService} from '../../map.service';
+import {AppModule} from '../../app.module';
 
 @Component({
   selector: 'app-ride',
@@ -12,13 +11,15 @@ import {RidesDataService} from '../../rides-data.service';
   styleUrls: ['./ride.component.css'],
   providers: [RidesDataService]
 })
+
 export class RideComponent implements OnInit {
 
   rides: Observable<any[]>;
   data : any;
   mapInstance: any;
-                                                          
-  constructor(private modalService: NgbModal, private rd : RidesDataService)
+  message : any;
+
+  constructor(private modalService: NgbModal, private rd : RidesDataService, private ms : MapService)
   {
     this.rides = rd.getEntries();
   }
@@ -34,10 +35,13 @@ export class RideComponent implements OnInit {
   }
 
   // show the route
-  private showOnMap(address_start, address_dest)
+  private showOnMap(address_start, address_dest, modal)
   {
-    this.mapInstance = new MapComponent();
-    this.mapInstance.initMapShowRoute(address_start, address_dest);
+    this.ms.showRouteForRide(address_start, address_dest);
+    
+    // this.ms.currentMessage.subscribe(message => this.message = message);
+    // console.log(this.message);
+    this.modalService.open(modal);
   }
 
 }

@@ -1,9 +1,9 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
-import { AgmCoreModule, MapsAPILoader ,GoogleMapsAPIWrapper} from '@agm/core';
-import { MapComponent } from '../../map/map.component';
 import {ApartmentDataService} from '../../apartment-data.service';
+import {AppModule} from '../../app.module';
+import {MapService} from '../../map.service';
 
 
 @Component({
@@ -18,7 +18,7 @@ export class RoommateComponent implements OnInit {
   data : any;
   mapInstance : any;
 
-  constructor(private modalService : NgbModal, private de:ApartmentDataService) {
+  constructor(private modalService : NgbModal, private de:ApartmentDataService, private ms : MapService) {
 
     this.items = de.getEntries();
    }
@@ -35,8 +35,7 @@ export class RoommateComponent implements OnInit {
 
   showOnMap(address)
   {
-    this.mapInstance = new MapComponent();
-    this.mapInstance.helper(address); 
+    this.ms.showApartment(address);
   }
 
 }

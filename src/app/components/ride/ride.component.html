@@ -23,7 +23,7 @@
                                 </a>
 
                                 <button class="btn btn-info" role="button" style="color:white;" 
-                                (click)="showOnMap(ride.startStreet+ride.startCity+ride.startState+ride.startZip, ride.destinationStreet+ride.destinationCity+ride.destinationState+ride.destinationZip)">
+                                (click)="showOnMap(ride.startStreet+ride.startCity+ride.startState+ride.startZip, ride.destinationStreet+ride.destinationCity+ride.destinationState+ride.destinationZip, infoPop)">
                                     <i class="fa fa-map-marker" aria-hidden="true"> Find on Map</i>
                                     
                                 </button>
@@ -63,4 +63,13 @@
     </div>
 </ng-template> 
 
-
+<ng-template #infoPop let-c="close" let-d="dismiss">
+    
+    <div class="modal-body" id="info" #info>
+      
+    </div>
+    
+    <div class="modal-footer">
+        <button type="button" class="btn btn-info" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template> 

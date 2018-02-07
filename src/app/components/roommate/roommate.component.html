@@ -66,6 +66,12 @@
                     <i class="fa fa-mobile" aria-hidden="true">{{data.Phone}}</i>
                 </li>
         </div>
+
+        <div *ngIf="data.description">
+            <li class="list-group-item">
+                <b> Note: </b>{{data.description}}
+            </li>
+        </div>
         
     </div>
     <div class="modal-footer">

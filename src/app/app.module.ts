@@ -18,7 +18,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { SlideMenuModule } from 'cuppa-ng2-slidemenu/cuppa-ng2-slidemenu';
 
 import { NgBootstrapFormValidationModule } from 'ng-bootstrap-form-validation';
-
+import {MapService} from './map.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 
@@ -69,7 +69,7 @@ const appRoutes:Routes = [
     NgbModule.forRoot(), NgbModule, SlideMenuModule, ReactiveFormsModule, 
     NgBootstrapFormValidationModule.forRoot(), NgbCarouselModule
   ],
-  providers: [FirebaseService],
+  providers: [FirebaseService, MapService],
   bootstrap: [AppComponent] //  the main component
 })
 export class AppModule { }

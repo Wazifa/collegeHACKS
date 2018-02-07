@@ -1,4 +1,3 @@
-
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -30,7 +29,7 @@ import { FirebaseService } from "./services/firebase.service";
 import { AddRideComponent } from './add-ride/add-ride.component';
 import { AddRoommateComponent } from './add-roommate/add-roommate.component';
 import { AddTextbookComponent } from './add-textbook/add-textbook.component';
-import { AboutComponent } from './about/about.component';
+
 import { MapComponent } from './map/map.component';
 
 
@@ -42,8 +41,7 @@ const appRoutes:Routes = [
   {path:'create-post', component:PostComponent}, 
   {path:'add-ride', component:AddRideComponent},
   {path:'need-roommate', component:AddRoommateComponent},
-  {path:'need-textbook', component:AddTextbookComponent},
-  {path:'about', component:AboutComponent}
+  {path:'need-textbook', component:AddTextbookComponent}
 ];
 
 @NgModule({
@@ -58,7 +56,6 @@ const appRoutes:Routes = [
     AddRideComponent,
     AddRoommateComponent,
     AddTextbookComponent,
-    AboutComponent,
     MapComponent
   ],
 

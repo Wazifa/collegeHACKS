@@ -13,7 +13,6 @@ import {BookDataService} from '../../book-data.service';
 
 export class TextbooksComponent implements OnInit {
 
-
   items: Observable<any[]>;
   data : any;
 
@@ -23,6 +22,7 @@ export class TextbooksComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.bd.deleteOldEntries();
   }
 
   display( item: any, modal)

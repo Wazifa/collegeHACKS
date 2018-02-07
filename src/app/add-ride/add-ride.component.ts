@@ -8,8 +8,7 @@ import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 import {FormControl, FormGroup, Validators, FormBuilder, NgForm, FormsModule} from "@angular/forms";
 
 import {MapService} from '../map.service';
-import * as mapboxgl from 'mapbox-gl';
-import { GeoJson, FeatureCollection } from '../map';
+
 
 @Component({
   selector: 'app-add-ride',

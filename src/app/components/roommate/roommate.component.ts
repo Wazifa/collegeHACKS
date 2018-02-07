@@ -2,15 +2,13 @@ import { Component, OnInit, Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {ApartmentDataService} from '../../apartment-data.service';
-import {AppModule} from '../../app.module';
 import {MapService} from '../../map.service';
-
 
 @Component({
   selector: 'app-roommate', 
   templateUrl: './roommate.component.html',
   styleUrls: ['./roommate.component.css'],
-  providers : [ApartmentDataService]
+  providers : [ApartmentDataService, MapService]
 })
 export class RoommateComponent implements OnInit {
   

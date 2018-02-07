@@ -3,13 +3,13 @@ import {Observable} from 'rxjs/Observable';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {RidesDataService} from '../../rides-data.service';
 import {MapService} from '../../map.service';
-import {AppModule} from '../../app.module';
+
 
 @Component({
   selector: 'app-ride',
   templateUrl: './ride.component.html',
   styleUrls: ['./ride.component.css'],
-  providers: [RidesDataService]
+  providers: [RidesDataService, MapService]
 })
 
 export class RideComponent implements OnInit {
@@ -38,9 +38,7 @@ export class RideComponent implements OnInit {
   private showOnMap(address_start, address_dest, modal)
   {
     this.ms.showRouteForRide(address_start, address_dest);
-    
-    // this.ms.currentMessage.subscribe(message => this.message = message);
-    // console.log(this.message);
+   
     this.modalService.open(modal);
   }
 

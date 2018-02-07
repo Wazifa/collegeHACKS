@@ -4,7 +4,7 @@ import { BehaviorSubject} from 'rxjs/BehaviorSubject';
 import { AgmCoreModule, MapsAPILoader ,GoogleMapsAPIWrapper, NoOpMapsAPILoader} from '@agm/core';
 import {AppModule} from './app.module';
 
-declare var google;
+declare var google : any;
 
 @Injectable()
 export class MapService {
@@ -20,6 +20,14 @@ export class MapService {
   constructor() { 
     
     this.alert = "";
+  }
+
+  initMap()
+  {
+    this.map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 8,
+      center: {lat: 41.850033, lng: -87.6500523}
+    });  
   }
 
   /*
@@ -72,7 +80,6 @@ export class MapService {
   */
   showRouteForRide(start_Address, destination_Address)
   {
-    // this.mp.initMapShowRoute(start_address, destination);
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
     
@@ -123,7 +130,5 @@ export class MapService {
       
       });
   }
-
-
 }
 

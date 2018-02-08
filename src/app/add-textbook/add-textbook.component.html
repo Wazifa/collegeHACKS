@@ -11,10 +11,13 @@
                     <!-- Address -->
                     <div class="form-group">
                         <label for="book">Name* </label>
-                        <input type="text" class="form-control" formControlName='book' #book ngModel required >
-                        
+                        <input type="text" class="form-control" formControlName='book' #book ngModel required >                       
                     </div>
                     
+                    <div class="form-group">
+                        <label for="author">Author* </label>
+                        <input type="text" class="form-control" formControlName='author' #author required>
+                    </div>
                     
                     <div class="form-group">
                         <label for="edition">Edition*</label>
@@ -23,7 +26,7 @@
 
                     <div class="form-group">
                         <label for="price">Price*</label>
-                        <input type="number" class="form-control" #price formControlName='price' required>
+                        <input type="number" class="form-control" #price formControlName='price' step="any" placeholder="USD" required>
                     </div>
 
                     <label for="condition">Condition*</label>
@@ -59,7 +62,7 @@
 
                     <div class="form-group">
                         <label for="phone" style="color:black;">Phone </label>
-                        <input type="number" class="form-control" placeholder="Optional" formControlName='phone' #phone>
+                        <input type="tel" class="form-control" placeholder="Optional" formControlName='phone' #phone>
                     </div> 
 
                     <div class="text-center" style="padding-top: 10%;">

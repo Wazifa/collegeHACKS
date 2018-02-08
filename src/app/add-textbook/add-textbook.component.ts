@@ -24,6 +24,7 @@ export class AddTextbookComponent implements OnInit {
 
     this.form = fb.group({
       'book' : [null, Validators.required],
+      'author' : [null, Validators.required],
       'edition' : [null, Validators.required],
       'name' : [null, Validators.required],
       'email' : [null, Validators.required],
@@ -45,6 +46,7 @@ export class AddTextbookComponent implements OnInit {
       this.itemsRef.push({
         Date : Date(),
         Book : value.book,
+        Author : value.author,
         Edition : value.edition,
         Name : value.name,
         Email : value.email,

@@ -87,7 +87,6 @@ export class MapService {
 
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 15,
-      disableDefaultUI: true,
       zoomControl: true
     });
     directionsDisplay.setMap(map);
@@ -110,7 +109,7 @@ export class MapService {
       origins: [start_Address],
       destinations: [destination_Address],
       travelMode: 'DRIVING',
-      unitSystem: google.maps.UnitSystem.METRIC,
+      unitSystem: google.maps.UnitSystem.IMPERIAL,
       avoidHighways: false,
       avoidTolls: false
     }, function(response, status){

@@ -4,18 +4,21 @@
             <div class="col-sm-6"  *ngFor="let item of items | async">
                 <div class="card" id="eachCard" >
                     <h5> 
-                        {{item.Book}}
+                        {{item.Book}} 
                     </h5>            
-                    <p> Edition: {{item.Edition}} for ${{item.Price}}</p>
+                    <p> by {{item.Author}} </p>
 
                     <li class="list-group-item">
                             Condition: {{item.Condition}}.
-                    
-                        <li class="list-group-item">
-                                <a (click)="display(item, content)" data-toggle ="modal" class="btn btn-info" role="button" style="color:white;">
-                                    <i class="fa fa-address-card" aria-hidden="true"> Contact</i>
-                                </a>
-                        </li>
+                    </li>
+                    <li class="list-group-item">
+                        <a (click)="display(item, content)" data-toggle ="modal" class="btn btn-info" role="button" style="color:white;">
+                            <i class="fa fa-address-card" aria-hidden="true"> Contact</i>
+                        </a>
+                        <button type="button" class="btn btn-info" role="button" placement="bottom" ngbPopover="Edition: {{item.Edition}} for ${{item.Price}}" style="color:white;">
+                            <i class="fa fa-dollar"> Price</i>
+                        </button>
+                    </li>
                 </div>
             </div> 
         
